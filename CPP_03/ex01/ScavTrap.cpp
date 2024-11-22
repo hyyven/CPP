@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:35:57 by afont             #+#    #+#             */
-/*   Updated: 2024/04/22 10:57:04 by afont            ###   ########.fr       */
+/*   Updated: 2024/11/18 10:03:37 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap " << this->_name << " destructed" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+{
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 void	ScavTrap::guardGate()

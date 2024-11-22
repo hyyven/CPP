@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:03:33 by afont             #+#    #+#             */
-/*   Updated: 2024/04/22 11:23:52 by afont            ###   ########.fr       */
+/*   Updated: 2024/11/18 10:06:50 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ class FragTrap : public ClapTrap
 	public:
 		FragTrap(std::string name);
 		~FragTrap();
+		FragTrap(const FragTrap &other);
 		void	highFivesGuys(void);
 };

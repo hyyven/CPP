@@ -11,7 +11,7 @@ all: $(NAME)
 $(OBJ_DIR)/%.o: %.cpp
 	@tput civis
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c -g $< -o $@
 	count=$$(find $(OBJ_DIR) -name '*.o' | wc -l); \
 	str="████████████████████"; \
 	len_str=$$((($$count * 20) / $(TOTAL_FILES) * 3)); \

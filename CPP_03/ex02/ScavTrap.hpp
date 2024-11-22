@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:31:25 by afont             #+#    #+#             */
-/*   Updated: 2024/04/22 10:57:59 by afont            ###   ########.fr       */
+/*   Updated: 2024/11/18 10:07:49 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class ScavTrap : public ClapTrap
 	public:
 		ScavTrap(std::string name);
 		~ScavTrap();
+		ScavTrap(const ScavTrap &other);
 		void	guardGate(void);
 };
 

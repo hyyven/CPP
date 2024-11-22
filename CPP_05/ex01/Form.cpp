@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 09:04:58 by afont             #+#    #+#             */
-/*   Updated: 2024/08/30 14:28:03 by afont            ###   ########.fr       */
+/*   Updated: 2024/11/18 10:22:26 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute) : _name(name),
 }
 
 Form::~Form(void)
+{
+}
+
+Form::Form(Form const &other) : _name(other._name), _signed(other._signed), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
 }
 

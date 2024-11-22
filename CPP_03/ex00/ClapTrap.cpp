@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:27:55 by afont             #+#    #+#             */
-/*   Updated: 2024/04/22 10:25:14 by afont            ###   ########.fr       */
+/*   Updated: 2024/11/18 09:57:00 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap " << this->_name << " destructed" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &other)
+{
+	this->_name = other._name;
+	this->_HitPoint = other._HitPoint;
+	this->_EnergyPoint = other._EnergyPoint;
+	this->_AttackDamage = other._AttackDamage;
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 void	ClapTrap::attack(const std::string &target)

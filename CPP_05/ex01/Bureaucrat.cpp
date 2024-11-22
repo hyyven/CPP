@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 12:21:33 by afont             #+#    #+#             */
-/*   Updated: 2024/08/30 10:11:03 by afont            ###   ########.fr       */
+/*   Updated: 2024/11/18 10:22:53 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 }
 
 Bureaucrat::~Bureaucrat(void)
+{
+}
+
+Bureaucrat::Bureaucrat(Bureaucrat const &other) : _name(other._name), _grade(other._grade)
 {
 }
 

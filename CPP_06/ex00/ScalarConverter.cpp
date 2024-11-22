@@ -6,13 +6,13 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 08:35:04 by afont             #+#    #+#             */
-/*   Updated: 2024/09/04 16:17:54 by afont            ###   ########.fr       */
+/*   Updated: 2024/11/21 11:53:21 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(std::string input) : _input(input)
+ScalarConverter::ScalarConverter(void)
 {
 }
 
@@ -20,121 +20,153 @@ ScalarConverter::~ScalarConverter(void)
 {
 }
 
-ScalarConverter ScalarConverter::create(std::string input)
+ScalarConverter::ScalarConverter(ScalarConverter const &other)
 {
-	return (ScalarConverter(input));
+	(void)other;
 }
 
-bool	ScalarConverter::isInt(void)
+static bool	isInt(std::string input)
 {
 	int	i = -1;
 	int	cpt = 0;
 
-	while (_input[++i])
-		if (_input[i] == '-')
+	while (input[++i])
+		if (input[i] == '-')
 			cpt++;
-	if (cpt > 1 || (cpt == 1 && _input[0] != '-'))
+	if (cpt > 1 || (cpt == 1 && input[0] != '-'))
 		return (false);
 	i = -1;
-	while (_input[++i])
-		if (!isdigit(_input[i]) && _input[i] != '-')
+	while (input[++i])
+		if (!isdigit(input[i]) && input[i] != '-')
 			return (false);
-	std::cout << "int" << std::endl;
+	if (strtold(input.c_str(), 0) > INT_MAX || strtold(input.c_str(), 0) < INT_MIN)
+		return (false);
 	return (true);
 }
 
-bool	ScalarConverter::isChar(void)
+static bool	isChar(std::string input)
 {
-	if (_input.length() == 1 && !isdigit(_input[0]) && isprint(_input[0]))
-	{
-		std::cout << "char" << std::endl;
+	if (input.length() == 1 && !isdigit(input[0]) && isprint(input[0]))
 		return (true);
-	}
 	return (false);
 }
 
-bool	ScalarConverter::isDouble(void)
+static bool	isDouble(std::string input)
 {
 	int	i = -1;
 	int	cpt1 = 0, cpt2 = 0;
 
-	while (_input[++i])
+	while (input[++i])
 	{
-		if (_input[i] == '-')
+		if (input[i] == '-')
 			cpt1++;
-		else if (_input[i] == '.')
+		else if (input[i] == '.')
 			cpt2++;
 	}
-	if (cpt1 > 1 || (cpt1 == 1 && _input[0] != '-')) //check '-'
+	if (cpt1 > 1 || (cpt1 == 1 && input[0] != '-')) //check '-'
 		return (false);
-	if (cpt2 != 1 || (cpt1 == 1 && _input[1] == '.')  || _input[0] == '.' || _input[_input.length() - 1] == '.') //check '.'
+	if (cpt2 != 1 || (cpt1 == 1 && input[1] == '.')  || input[0] == '.' || input[input.length() - 1] == '.') //check '.'
 		return (false);
 	i = -1;
-	while (_input[++i])
-		if (!isdigit(_input[i]) && _input[i] != '.' && _input[i] != '-')
+	while (input[++i])
+		if (!isdigit(input[i]) && input[i] != '.' && input[i] != '-')
 			return (false);
-	std::cout << "double" << std::endl;
+	if (strtold(input.c_str(), 0) > DBL_MAX || strtold(input.c_str(), 0) < DBL_MIN)
+		return (false);
 	return (true);
 }
 
-bool	ScalarConverter::isFloat(void)
+static bool	isFloat(std::string input)
 {
 	int	i = -1, j = 0;
 	int	cpt1 = 0, cpt2 = 0, cpt3 = 0;
 
-	while (_input[++i])
+	while (input[++i])
 	{
-		if (_input[i] == '-')
+		if (input[i] == '-')
 			cpt1++;
-		else if (_input[i] == '.')
+		else if (input[i] == '.')
 		{
 			j = i;
 			cpt2++;
 		}
-		else if (_input[i] == 'f')
+		else if (input[i] == 'f')
 			cpt3++;
 	}
-	if (cpt1 > 1 || (cpt1 == 1 && _input[0] != '-')) //check '-'
+	if (cpt1 > 1 || (cpt1 == 1 && input[0] != '-')) //check '-'
 		return (false);
-	if (cpt2 != 1 || j == 0 || j == (int)_input.length() || !isdigit(_input[j - 1]) || !isdigit(_input[j + 1])) //check '.'
+	if (cpt2 != 1 || j == 0 || j == (int)input.length() || !isdigit(input[j - 1]) || !isdigit(input[j + 1])) //check '.'
 		return (false);
-	if (cpt3 != 1 || _input[_input.length() - 1] != 'f') // chekc 'f'
+	if (cpt3 != 1 || input[input.length() - 1] != 'f') // chekc 'f'
 		return (false);
 	i = -1;
-	while (_input[++i])
-		if (!isdigit(_input[i]) && _input[i] != '.' && _input[i] != '-' && _input[i] != 'f')
+	while (input[++i])
+		if (!isdigit(input[i]) && input[i] != '.' && input[i] != '-' && input[i] != 'f')
 			return (false);
-	std::cout << "float" << std::endl;
+	if (strtold(input.c_str(), 0) > FLT_MAX || strtold(input.c_str(), 0) < FLT_MIN)
+		return (false);
 	return (true);
 }
 
-int	ScalarConverter::impossible(void)
+static int	impossible(std::string input)
 {
-	if (!_input.length()) //empty
+	if (!input.length()) //empty
 	{
 		std::cout << "?";
 		return (0);
 	}
-	if (_input == "nan" || _input == "nanf" || _input == "+inf" || _input == "+inff" || _input == "-inf" || _input == "-inff") //nan or inf
+	if (input == "nan" || input == "nanf" || input == "+inf" || input == "+inff" || input == "-inf" || input == "-inff") //nan or inf
 		return (1);
-	if (isChar())
+	if (isChar(input))
 		return (2);
-	if (isInt())
+	if (isInt(input))
 		return (3);
-	if (isDouble())
+	if (isDouble(input))
 		return (4);
-	if(isFloat())
+	if(isFloat(input))
 		return (5);
-	std::cout << ".";
 	return (0);
 }
 
-void	ScalarConverter::convert(void)
+static void	display(char c, std::string i, std::string f, std::string d)
 {
-	if (impossible() == 0)
-	{
+	// char
+	if (c && isprint(c))
+		std::cout << "char: '" << c << "'" << std::endl;
+	else if (c && !isprint(c))
+		std::cout << "Non displayable" << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
+	// int
+	if (!i.empty())
+		std::cout << "int: " << atoi(i.c_str()) << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
+	// float
+	if (!f.empty())
+		std::cout << "float: " << std::fixed << std::setprecision(1) << atof(f.c_str()) << "f" << std::endl;
+	else
+		std::cout << "float: impossible" << std::endl;
+	// double
+	if (!d.empty())
+		std::cout << "double: " << atof(d.c_str()) << std::endl;
+	else
+		std::cout << "double: impossible" << std::endl;
+}
+
+void	ScalarConverter::convert(std::string input)
+{
+	int	type = impossible(input);
+	if (!type)
 		std::cout << "impossible" << std::endl;
-		return ;
+	if (type == 1)
+		display(0, "", input, input);
+	if (type == 2)
+	{
+		std::stringstream ss;
+		ss << (int)(input[0]);
+		display(input[0], ss.str(), ss.str(), ss.str());
 	}
-	std::cout << "!" << std::endl;
+	if (type == 3 || type == 4 || type == 5)
+		display(atoi(input.c_str()), input, input, input);
 }

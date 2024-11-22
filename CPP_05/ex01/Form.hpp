@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 09:05:57 by afont             #+#    #+#             */
-/*   Updated: 2024/08/30 12:04:32 by afont            ###   ########.fr       */
+/*   Updated: 2024/11/18 10:22:20 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Form
 	public:
 		Form(std::string name, int gradeToSign, int gradeToExecute);
 		~Form(void);
+		Form(Form const &other);
 		std::string	getName(void) const;
 		bool		getSigned(void) const;
 		int			getGradeToSign(void) const;

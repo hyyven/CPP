@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:58:58 by afont             #+#    #+#             */
-/*   Updated: 2024/10/14 12:03:47 by afont            ###   ########.fr       */
+/*   Updated: 2024/11/18 10:19:56 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main(void)
 	FragTrap ft1("oui");
 	FragTrap ft2("non");
 	FragTrap ft3("ouais");
+	FragTrap ft4(ft1);
 	
 	ft1.takeDamage(9);
 	ft1.takeDamage(1);

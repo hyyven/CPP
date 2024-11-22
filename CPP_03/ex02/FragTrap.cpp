@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:03:42 by afont             #+#    #+#             */
-/*   Updated: 2024/04/22 11:18:52 by afont            ###   ########.fr       */
+/*   Updated: 2024/11/18 10:07:40 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 FragTrap::~FragTrap()
 {
 	std::cout << "FragTrap " << this->_name << " destructed" << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
+{
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 void	FragTrap::highFivesGuys(void)

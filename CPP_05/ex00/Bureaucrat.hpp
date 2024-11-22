@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 12:21:31 by afont             #+#    #+#             */
-/*   Updated: 2024/08/30 08:35:44 by afont            ###   ########.fr       */
+/*   Updated: 2024/11/18 10:21:10 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class	Bureaucrat
 	public:
 		Bureaucrat(std::string name, int grade);
 		~Bureaucrat(void);
+		Bureaucrat(Bureaucrat const &other);
 		std::string	getName(void) const;
 		int			getGrade(void) const;
 		void		incrementGrade(void);

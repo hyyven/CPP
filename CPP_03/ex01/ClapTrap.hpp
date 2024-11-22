@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:24:34 by afont             #+#    #+#             */
-/*   Updated: 2024/04/22 10:54:06 by afont            ###   ########.fr       */
+/*   Updated: 2024/11/18 09:59:51 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ClapTrap
 	public:
 		ClapTrap(std::string name);
 		~ClapTrap();
+		ClapTrap(const ClapTrap &other);
 		void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
