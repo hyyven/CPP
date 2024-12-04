@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:53:15 by afont             #+#    #+#             */
-/*   Updated: 2024/11/22 11:55:51 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/02 10:29:54 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Ice::Ice(void) : AMateria("ice")
 {
 }
 
-Ice::Ice(Ice const &other) : AMateria(other)
+Ice::Ice(Ice const &other) : AMateria(other._type)
 {
 }
 

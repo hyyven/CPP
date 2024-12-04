@@ -6,11 +6,18 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:02:18 by afont             #+#    #+#             */
-/*   Updated: 2024/11/22 12:03:54 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/02 10:21:29 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#include "ICharacter.hpp"
 #include "AMateria.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
 class	Cure : public AMateria
 {
@@ -18,6 +25,6 @@ class	Cure : public AMateria
 		Cure(void);
 		Cure(Cure const &other);
 		~Cure(void);
-		virtual AMateria	*clone(void) const;
-		virtual void		use(ICharacter &target);	
+		AMateria	*clone(void) const;
+		void		use(ICharacter &target);	
 };

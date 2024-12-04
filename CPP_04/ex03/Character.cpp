@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:17:54 by afont             #+#    #+#             */
-/*   Updated: 2024/11/22 12:25:52 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/02 12:10:21 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,20 @@
 
 Character::Character(std::string const &name) : _name(name)
 {
-	for (int i = 0; i < 4; i++)
+	int	i = -1;
+
+	while (++i < 4)
 		_inventory[i] = NULL;
 }
 
 Character::Character(Character const &other) : _name(other._name)
 {
-	for (int i = 0; i < 4; i++)
+	int	i = -1;
+
+	while (++i < 4)
 	{
+		if (this->_inventory[i])
+			delete this->_inventory[i];
 		if (other._inventory[i])
 			_inventory[i] = other._inventory[i]->clone();
 		else
@@ -31,11 +37,11 @@ Character::Character(Character const &other) : _name(other._name)
 
 Character::~Character(void)
 {
-	for (int i = 0; i < 4; i++)
-	{
+	int	i = -1;
+
+	while (++i < 4)
 		if (_inventory[i])
 			delete _inventory[i];
-	}
 }
 
 std::string const &Character::getName(void) const
@@ -46,14 +52,22 @@ std::string const &Character::getName(void) const
 void	Character::equip(AMateria *m)
 {
 	int	i = -1;
+	
+	if (!m)
+	{
+		std::cout << "Materia is null" << std::endl;
+		return ;
+	}
 	while (++i < 4)
 	{
 		if (!_inventory[i])
 		{
+			std::cout << "?";
 			_inventory[i] = m;
-			break;
+			return ;
 		}
 	}
+	std::cout << "Can't equip more materia" << std::endl;
 }
 
 void	Character::unequip(int idx)
@@ -66,6 +80,18 @@ void	Character::unequip(int idx)
 void	Character::use(int idx, ICharacter &target)
 {
 	if (idx < 0 || idx >= 4 || !_inventory[idx])
+	{
+		std::cout << "nothing to use" << std::endl;
 		return ;
+	}
 	_inventory[idx]->use(target);
+}
+
+void	Character::showInv(void)
+{
+	int	i = -1;
+
+	while (++i < 3)
+		std::cout << this->_inventory[i] << ", ";
+	std::cout << this->_inventory[i] << std::endl;
 }

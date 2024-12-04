@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:02:58 by afont             #+#    #+#             */
-/*   Updated: 2024/11/22 12:03:22 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/02 10:30:03 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Cure::Cure(void) : AMateria("cure")
 {
 }
 
-Cure::Cure(Cure const &other) : AMateria(other)
+Cure::Cure(Cure const &other) : AMateria(other._type)
 {
 }
 
