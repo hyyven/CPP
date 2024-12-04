@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:17:54 by afont             #+#    #+#             */
-/*   Updated: 2024/12/02 12:10:21 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/04 09:40:15 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	Character::equip(AMateria *m)
 	{
 		if (!_inventory[i])
 		{
-			std::cout << "?";
 			_inventory[i] = m;
 			return ;
 		}

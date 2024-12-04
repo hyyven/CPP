@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:35:03 by afont             #+#    #+#             */
-/*   Updated: 2024/11/22 11:32:47 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/04 09:57:37 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main()
 	for (unsigned int i = 0; i < b.size(); i++)
 		std::cout << b[i] << " ";
 	std::cout << std::endl;
-	std::cout << "a[2]: " << a[2] << std::endl;
+	std::cout << "a[2]: " << a[-1] << std::endl;
 	std::cout << "b[2]: " << b[2] << std::endl;
 	
 	try
