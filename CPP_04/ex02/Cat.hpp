@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:17:51 by afont             #+#    #+#             */
-/*   Updated: 2024/04/25 12:03:23 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/10 12:25:04 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class	Cat : public Animal
 	public:
 		Cat(void);
 		~Cat(void);
+		Cat(const Cat &src);
 		void	makeSound(void) const;
 };
 

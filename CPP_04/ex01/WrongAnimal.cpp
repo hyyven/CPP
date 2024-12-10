@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:29:16 by afont             #+#    #+#             */
-/*   Updated: 2024/04/25 10:59:40 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/10 12:19:43 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ WrongAnimal::WrongAnimal(void)
 WrongAnimal::~WrongAnimal(void)
 {
 	std::cout << "<" << this->_type << "> wrong animal destructed" << std::endl;
+}
+
+WrongAnimal::WrongAnimal(const WrongAnimal &src)
+{
+	this->_type = src._type;
 }
 
 std::string	WrongAnimal::getType(void) const

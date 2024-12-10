@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 10:36:12 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 12:17:55 by afont            ###   ########.fr       */
+/*   Created: 2024/12/10 10:04:36 by afont             #+#    #+#             */
+/*   Updated: 2024/12/10 10:20:17 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#pragma once
+#include <iostream>
+#include <stack>
 
-Cat::Cat(void) : Animal()
+template <typename T>
+class MutantStack : public std::stack<T>
 {
-	this->_type = "Cat";
-	this->_brain = new Brain();
-	std::cout << "<" << this->_type << "> cat created" << std::endl;
-}
-
-Cat::~Cat(void)
-{
-	delete this->_brain;
-	std::cout << "<" << this->_type << "> cat destructed" << std::endl;
-}
-
-Cat::Cat(const Cat &src) : Animal(src)
-{
-	this->_type = src._type;
-	this->_brain = new Brain(*src._brain);
-}
+	public:
+		MutantStack() : std::stack<T>() {}
+		MutantStack(MutantStack const & src) : std::stack<T>(src) {}
+		virtual ~MutantStack() {}
+		typedef typename std::stack<T>::container_type::iterator iterator;
+		iterator begin() {return this->c.begin();}
+		iterator end() {return this->c.end();}
+};

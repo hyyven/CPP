@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:14:28 by afont             #+#    #+#             */
-/*   Updated: 2024/04/25 11:21:48 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/10 12:14:36 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,9 @@ Dog::Dog(void) : Animal()
 Dog::~Dog(void)
 {
 	std::cout << "<" << this->_type << "> dog destructed" << std::endl;
+}
+
+Dog::Dog(Dog const &src) : Animal()
+{
+	this->_type = src.getType();
 }

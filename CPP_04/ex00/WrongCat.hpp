@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:31:56 by afont             #+#    #+#             */
-/*   Updated: 2024/04/23 12:32:30 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/10 11:30:56 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class	WrongCat : public WrongAnimal
 	public:
 		WrongCat(void);
 		~WrongCat(void);
+		WrongCat(WrongCat const &src);
 };
 
 #endif

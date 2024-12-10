@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:32:41 by afont             #+#    #+#             */
-/*   Updated: 2024/04/25 10:59:49 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/10 12:23:17 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,9 @@ WrongCat::WrongCat(void) : WrongAnimal()
 WrongCat::~WrongCat(void)
 {
 	std::cout << "<" << this->_type << "> wrong cat destructed" << std::endl;
+}
+
+WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src)
+{
+	this->_type = src._type;
 }

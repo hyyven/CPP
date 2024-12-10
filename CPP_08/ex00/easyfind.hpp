@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 10:36:12 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 12:17:55 by afont            ###   ########.fr       */
+/*   Created: 2024/12/04 10:10:53 by afont             #+#    #+#             */
+/*   Updated: 2024/12/04 10:28:58 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#pragma once
+#include <iostream>
+#include <algorithm>
 
-Cat::Cat(void) : Animal()
+template <typename T>
+void	easyFind(T &container, int i)
 {
-	this->_type = "Cat";
-	this->_brain = new Brain();
-	std::cout << "<" << this->_type << "> cat created" << std::endl;
-}
-
-Cat::~Cat(void)
-{
-	delete this->_brain;
-	std::cout << "<" << this->_type << "> cat destructed" << std::endl;
-}
-
-Cat::Cat(const Cat &src) : Animal(src)
-{
-	this->_type = src._type;
-	this->_brain = new Brain(*src._brain);
+	typename T::iterator it = std::find(container.begin(), container.end(), i);
+	if (it == container.end())
+		throw std::exception();
+	std::cout << "Value " << i << " found in container" << std::endl;
 }

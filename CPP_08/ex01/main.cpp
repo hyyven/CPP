@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 10:36:12 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 12:17:55 by afont            ###   ########.fr       */
+/*   Created: 2024/12/04 10:49:20 by afont             #+#    #+#             */
+/*   Updated: 2024/12/04 13:21:34 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "span.hpp"
 
-Cat::Cat(void) : Animal()
+int main()
 {
-	this->_type = "Cat";
-	this->_brain = new Brain();
-	std::cout << "<" << this->_type << "> cat created" << std::endl;
-}
-
-Cat::~Cat(void)
-{
-	delete this->_brain;
-	std::cout << "<" << this->_type << "> cat destructed" << std::endl;
-}
-
-Cat::Cat(const Cat &src) : Animal(src)
-{
-	this->_type = src._type;
-	this->_brain = new Brain(*src._brain);
+	Span sp = Span(99, 9999, 10000);
+	// sp.printArray();
+	
+	std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+	return 0;
 }

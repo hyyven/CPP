@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 10:36:12 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 12:17:55 by afont            ###   ########.fr       */
+/*   Created: 2024/12/04 10:49:55 by afont             #+#    #+#             */
+/*   Updated: 2024/12/04 13:18:00 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#pragma once
+#include <iostream>
+#include <limits.h>
+#include <cstdlib>
 
-Cat::Cat(void) : Animal()
+class Span
 {
-	this->_type = "Cat";
-	this->_brain = new Brain();
-	std::cout << "<" << this->_type << "> cat created" << std::endl;
-}
-
-Cat::~Cat(void)
-{
-	delete this->_brain;
-	std::cout << "<" << this->_type << "> cat destructed" << std::endl;
-}
-
-Cat::Cat(const Cat &src) : Animal(src)
-{
-	this->_type = src._type;
-	this->_brain = new Brain(*src._brain);
-}
+	private:
+		unsigned int _n;
+		int *_array;
+		unsigned int _size;
+	public:
+		Span(unsigned int n);
+		Span(Span const &other);
+		Span(unsigned int min, unsigned  int max, unsigned int n);
+		~Span();
+		void	printArray();
+		void	addNumber(int number);
+		int		shortestSpan();
+		int		longestSpan();
+};
