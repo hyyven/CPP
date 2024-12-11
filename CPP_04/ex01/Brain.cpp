@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 10:41:49 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 12:16:33 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 09:56:50 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 Brain::Brain(void)
 {
+	int	i = -1;
+
+	while (++i < 100)
+		this->_ideas[i] = "empty";
 	std::cout << "Brain created" << std::endl;
 }
 

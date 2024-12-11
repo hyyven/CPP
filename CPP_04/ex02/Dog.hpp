@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:13:13 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 12:26:59 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 09:45:10 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class	Dog : public Animal
 		~Dog(void);
 		Dog(const Dog &src);
 		void	makeSound(void) const;
+		void	getIdeas(int i) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:06:59 by afont             #+#    #+#             */
-/*   Updated: 2024/04/25 11:51:19 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 10:01:37 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
 	delete j;
 
 	std::cout << "////////////////////////////////////////////////////////////" << std::endl;
-	int				k = 40;
+	int				k = 4;
 	int				l = -1;
 	const Animal	*animal_list[k];
 	while (++l < k/2)
@@ -38,4 +38,10 @@ int main()
 	while (++l < k)
 		delete animal_list[l];
 	std::cout << "////////////////////////////////////////////////////////////" << std::endl;
+	const WrongAnimal	*wrong_j = new WrongAnimal();
+	const WrongAnimal	*wrong_i = new WrongCat();
+	wrong_i->makeSound();
+	wrong_j->makeSound();
+	delete wrong_i;
+	delete wrong_j;
 }

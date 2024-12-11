@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:36:12 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 12:25:37 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 09:54:10 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 Cat::Cat(void) : Animal()
 {
+	std::cout << "<" << this->_type << "> cat created" << std::endl;
 	this->_type = "Cat";
 	this->_brain = new Brain();
-	std::cout << "<" << this->_type << "> cat created" << std::endl;
 }
 
 Cat::~Cat(void)

@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:32:41 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 12:28:39 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 09:31:16 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,9 @@ WrongCat::~WrongCat(void)
 WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src)
 {
 	this->_type = src._type;
+}
+
+void	WrongCat::makeSound(void) const
+{
+	std::cout << "*wrong cat noise*" << std::endl;
 }

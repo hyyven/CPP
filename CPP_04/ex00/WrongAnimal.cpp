@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:29:16 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 11:30:42 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 10:08:14 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,5 @@ std::string	WrongAnimal::getType(void) const
 
 void	WrongAnimal::makeSound(void) const
 {
-	std::string	tmp = this->getType();
-	if (tmp == "WrongAnimal")
-		std::cout << "*wrong animal noise*" << std::endl;
-	else if (tmp == "WrongCat")
-		std::cout << "wsh" << std::endl;
+	std::cout << "*wrong animal noise*" << std::endl;
 }
