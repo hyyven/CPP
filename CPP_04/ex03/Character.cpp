@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:17:54 by afont             #+#    #+#             */
-/*   Updated: 2024/12/04 09:40:15 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/17 11:31:39 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,16 @@ Character::Character(std::string const &name) : _name(name)
 
 	while (++i < 4)
 		_inventory[i] = NULL;
+
 }
 
-Character::Character(Character const &other) : _name(other._name)
+Character::Character(Character const &other)
 {
 	int	i = -1;
 
 	while (++i < 4)
-	{
-		if (this->_inventory[i])
-			delete this->_inventory[i];
-		if (other._inventory[i])
-			_inventory[i] = other._inventory[i]->clone();
-		else
-			_inventory[i] = NULL;
-	}
+		_inventory[i] = NULL;
+	*this = other;
 }
 
 Character::~Character(void)
@@ -42,6 +37,25 @@ Character::~Character(void)
 	while (++i < 4)
 		if (_inventory[i])
 			delete _inventory[i];
+}
+
+Character	&Character::operator=(Character const &other)
+{
+	int	i = -1;
+
+	if (this == &other)
+		return (*this);
+	_name = other._name;
+	while (++i < 4)
+	{
+		if (_inventory[i])
+			delete _inventory[i];
+		if (other._inventory[i])
+			_inventory[i] = other._inventory[i]->clone();
+		else
+			_inventory[i] = NULL;
+	}
+	return (*this);
 }
 
 std::string const &Character::getName(void) const
@@ -69,10 +83,10 @@ void	Character::equip(AMateria *m)
 	std::cout << "Can't equip more materia" << std::endl;
 }
 
-void	Character::unequip(int idx)
+void Character::unequip(int idx)
 {
 	if (idx < 0 || idx >= 4 || !_inventory[idx])
-		return ;
+		return;
 	_inventory[idx] = NULL;
 }
 
@@ -86,11 +100,11 @@ void	Character::use(int idx, ICharacter &target)
 	_inventory[idx]->use(target);
 }
 
-void	Character::showInv(void)
-{
-	int	i = -1;
+// void	Character::showInv(void)
+// {
+// 	int	i = -1;
 
-	while (++i < 3)
-		std::cout << this->_inventory[i] << ", ";
-	std::cout << this->_inventory[i] << std::endl;
-}
+// 	while (++i < 3)
+// 		std::cout << this->_inventory[i] << ", ";
+// 	std::cout << this->_inventory[i] << std::endl;
+// }

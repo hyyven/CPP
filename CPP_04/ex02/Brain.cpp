@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 10:41:49 by afont             #+#    #+#             */
-/*   Updated: 2024/12/11 09:44:21 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 13:33:50 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,17 @@ Brain::~Brain(void)
 
 Brain::Brain(const Brain &src)
 {
+	*this = src;
+}
+
+Brain	&Brain::operator=(const Brain &rhs)
+{
 	int	i = -1;
 
-	while (++i < 100)
-		this->_ideas[i] = src._ideas[i];
+	if (this != &rhs)
+		while (++i < 100)
+			this->_ideas[i] = rhs._ideas[i];
+	return (*this);
 }
 
 void	Brain::getIdeas(int i) const

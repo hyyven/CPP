@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:06:59 by afont             #+#    #+#             */
-/*   Updated: 2024/12/11 09:46:17 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/17 09:41:35 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,14 @@ int main()
 	wrong2->makeSound();
 	delete wrong2;
 	std::cout << "////////////////////////////////////////////////////////////" << std::endl;
-	Dog *deep_cp = new Dog();
-	Dog *deep_cp2 = new Dog(*deep_cp);
+	Dog *deep_cp1 = new Dog();
+	Dog *deep_cp2 = new Dog(*deep_cp1);
 	deep_cp2->getIdeas(0);
-	delete deep_cp;
+	Dog *deep_cp3 = new Dog(*deep_cp2);
+	deep_cp3->getIdeas(0);
+	delete deep_cp1;
 	deep_cp2->getIdeas(0);
 	delete deep_cp2;
+	deep_cp3->getIdeas(0);
+	delete deep_cp3;
 }

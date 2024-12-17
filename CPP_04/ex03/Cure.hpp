@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:02:18 by afont             #+#    #+#             */
-/*   Updated: 2024/12/02 10:21:29 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/17 09:44:51 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class	Cure : public AMateria
 	public:
 		Cure(void);
 		Cure(Cure const &other);
+		Cure	&operator=(Cure const &other);
 		~Cure(void);
 		AMateria	*clone(void) const;
 		void		use(ICharacter &target);	

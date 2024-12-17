@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 09:55:09 by afont             #+#    #+#             */
-/*   Updated: 2024/12/02 11:16:23 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/17 11:05:36 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,25 @@ MateriaSource::MateriaSource(void)
 
 MateriaSource::MateriaSource(MateriaSource const &other)
 {
+	*this = other;
+}
+
+MateriaSource	&MateriaSource::operator=(MateriaSource const &other)
+{
 	int	i = -1;
 	
+	if (this == &other)
+		return (*this);
 	while (++i < 4)
 	{
-		if (this->_source[i])
-			delete this->_source[i];
+		if (_source[i])
+			delete _source[i];
 		if (other._source[i])
 			_source[i] = other._source[i]->clone();
 		else
 			_source[i] = NULL;
 	}
+	return (*this);
 }
 
 MateriaSource::~MateriaSource(void)

@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:31:56 by afont             #+#    #+#             */
-/*   Updated: 2024/12/11 09:57:47 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 13:17:58 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class	WrongCat : public WrongAnimal
 		WrongCat(void);
 		~WrongCat(void);
 		WrongCat(const WrongCat &src);
+		WrongCat &operator=(const WrongCat &rhs);
 		void	makeSound(void) const;
 };
 

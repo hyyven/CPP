@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 09:51:34 by afont             #+#    #+#             */
-/*   Updated: 2024/12/02 10:29:36 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/17 09:45:26 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class	MateriaSource : public IMateriaSource
 	public:
 		MateriaSource(void);
 		MateriaSource(MateriaSource const &other);
+		MateriaSource	&operator=(MateriaSource const &other);
 		~MateriaSource(void);
 		void		learnMateria(AMateria *m);
 		AMateria	*getMateria(std::string const &type);

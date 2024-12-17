@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:01:28 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 12:24:17 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 13:22:38 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,13 @@ Animal::~Animal(void)
 
 Animal::Animal(const Animal &src)
 {
-	this->_type = src._type;
+	*this = src;
+}
+
+Animal	&Animal::operator=(const Animal &rhs)
+{
+	this->_type = rhs._type;
+	return (*this);
 }
 
 std::string	Animal::getType(void) const

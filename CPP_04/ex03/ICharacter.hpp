@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:05:27 by afont             #+#    #+#             */
-/*   Updated: 2024/12/02 11:12:39 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/17 10:41:32 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ class ICharacter
 		virtual void	equip(AMateria* m) = 0;
 		virtual void	unequip(int idx) = 0;
 		virtual void	use(int idx, ICharacter& target) = 0;
-		virtual void	showInv(void) = 0;
+		// virtual void	showInv(void) = 0;
 };

@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:14:28 by afont             #+#    #+#             */
-/*   Updated: 2024/12/11 09:53:47 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/17 09:41:19 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,18 @@ Dog::~Dog(void)
 
 Dog::Dog(const Dog &src) : Animal(src)
 {
-	this->_type = src._type;
-	this->_brain = new Brain(*src._brain);
+	*this = src;
+}
+
+Dog	&Dog::operator=(const Dog &rhs)
+{
+	if (this != &rhs)
+	{
+		this->_type = rhs._type;
+		// delete this->_brain;
+		this->_brain = new Brain(*rhs._brain);
+	}
+	return (*this);
 }
 
 void	Dog::makeSound(void) const

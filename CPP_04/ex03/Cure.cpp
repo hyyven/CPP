@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:02:58 by afont             #+#    #+#             */
-/*   Updated: 2024/12/02 10:30:03 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/17 09:52:44 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ Cure::Cure(Cure const &other) : AMateria(other._type)
 
 Cure::~Cure(void)
 {
+}
+
+Cure	&Cure::operator=(Cure const &other)
+{
+	if (this == &other)
+		return (*this);
+	_type = other._type;
+	return (*this);
 }
 
 AMateria	*Cure::clone(void) const

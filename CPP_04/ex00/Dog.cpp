@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:14:28 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 12:14:36 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/13 14:13:04 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,11 @@ Dog::~Dog(void)
 
 Dog::Dog(Dog const &src) : Animal()
 {
-	this->_type = src.getType();
+	*this = src;
+}
+
+Dog	&Dog::operator=(Dog const &rhs)
+{
+	this->_type = rhs.getType();
+	return (*this);
 }

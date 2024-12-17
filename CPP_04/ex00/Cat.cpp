@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:36:12 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 12:14:25 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 13:16:10 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,11 @@ Cat::~Cat(void)
 
 Cat::Cat(Cat const &src) : Animal()
 {
-	this->_type = src.getType();
+	*this = src;
+}
+
+Cat	&Cat::operator=(Cat const &rhs)
+{
+	this->_type = rhs.getType();
+	return (*this);
 }

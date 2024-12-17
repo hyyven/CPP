@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:29:16 by afont             #+#    #+#             */
-/*   Updated: 2024/12/11 10:08:14 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 13:16:39 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,13 @@ WrongAnimal::~WrongAnimal(void)
 
 WrongAnimal::WrongAnimal(WrongAnimal const &src)
 {
-	this->_type = src.getType();
+	*this = src;
+}
+
+WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &rhs)
+{
+	this->_type = rhs.getType();
+	return (*this);
 }
 
 std::string	WrongAnimal::getType(void) const

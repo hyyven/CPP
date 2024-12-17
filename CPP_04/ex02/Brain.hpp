@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 10:37:09 by afont             #+#    #+#             */
-/*   Updated: 2024/12/11 09:43:49 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 13:22:08 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class	Brain
 		Brain(void);
 		~Brain(void);
 		Brain(const Brain &src);
+		Brain	&operator=(const Brain &rhs);
 		void	getIdeas(int i) const;
 };
 

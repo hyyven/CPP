@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:36:12 by afont             #+#    #+#             */
-/*   Updated: 2024/12/11 09:54:10 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/17 09:37:56 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,18 @@ Cat::~Cat(void)
 
 Cat::Cat(const Cat &src) : Animal(src)
 {
-	this->_type = src._type;
-	this->_brain = new Brain(*src._brain);
+	*this = src;
+}
+
+Cat	&Cat::operator=(const Cat &rhs)
+{
+	if (this != &rhs)
+	{
+		this->_type = rhs._type;
+		// delete this->_brain;
+		this->_brain = new Brain(*rhs._brain);
+	}
+	return (*this);
 }
 
 void	Cat::makeSound(void) const

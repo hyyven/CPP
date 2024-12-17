@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:32:41 by afont             #+#    #+#             */
-/*   Updated: 2024/12/11 09:58:05 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 13:20:51 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,14 @@ WrongCat::~WrongCat(void)
 
 WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src)
 {
-	this->_type = src._type;
+	*this = src;
+}
+
+WrongCat	&WrongCat::operator=(const WrongCat &rhs)
+{
+	if (this != &rhs)
+		this->_type = rhs._type;
+	return (*this);
 }
 
 void	WrongCat::makeSound(void) const

@@ -6,7 +6,7 @@
 /*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 09:58:05 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 12:24:08 by afont            ###   ########.fr       */
+/*   Updated: 2024/12/11 13:22:04 by afont            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class	Animal
 		Animal(void);
 		virtual	~Animal(void);
 		Animal(const Animal &src);
+		Animal	&operator=(const Animal &rhs);
 		std::string		getType(void) const;
 		virtual void	makeSound(void) const = 0;
 };
