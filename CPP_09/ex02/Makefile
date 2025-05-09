@@ -3,7 +3,7 @@ OBJ_DIR = Objects
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRCS:.cpp=.o))
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = RPN
+NAME = PmergeMe
 TOTAL_FILES = $(words $(SRCS))
 
 all: $(NAME)

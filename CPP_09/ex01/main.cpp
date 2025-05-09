@@ -1,12 +1,21 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: afont <afont@student.42nice.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 10:30:31 by afont             #+#    #+#             */
-/*   Updated: 2024/12/10 10:30:32 by afont            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "RPN.hpp"
+#include <iostream>
 
+int main(int argc, char **argv) {
+    if (argc != 2) {
+        std::cerr << "Error: Usage: ./RPN \"expression\"" << std::endl;
+        return 1;
+    }
+    
+    RPN calculator;
+    try {
+        int result = calculator.calculate(argv[1]);
+        std::cout << result << std::endl;
+    }
+    catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+        return 1;
+    }
+    
+    return 0;
+}
